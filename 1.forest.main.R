@@ -19,10 +19,10 @@ sessionInfo()  # for more info
 #==== 1. Libraries==============================================================
 # libraries needed for downloading gtrends and weather data
 
-library(dplyr)
-library(gtools)
-library(ggplot2)
-library(vegan)
+library(dplyr)    # %>% 
+library(gtools)   # combinations()
+library(ggplot2)  # ggplot()
+library(vegan)    # vegdist()
 
 
 # if you don't have the library yet, please install it! Either with the script 

@@ -77,6 +77,9 @@ valley1 <- data.frame("tree1" = rnorm(n = 11, mean = 150, sd = 12),
                       "tree3" = rnorm(n = 11, mean = 300, sd = 12),
                       "tree4" = rnorm(n = 11, mean = 150, sd = 12), stringsAsFactors = F)
 
+study1 <- rbind(alpine1, subalp1, valley1) %>% 
+  data.matrix()
+
 
 #============================ trial 3 ==========================================
 
@@ -97,6 +100,8 @@ study2 <- rbind(alpine2, subalp2, valley2) %>%
   data.matrix()
 
 
+
+#============================ 
 
 
 #============================ binary data for jaccard's ========================

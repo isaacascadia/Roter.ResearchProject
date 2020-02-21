@@ -29,8 +29,10 @@ loading.scores <- pca$rotation[,1]
 var.scores <- abs(loading.scores)  # get the magnitudes
 var.score.ranked <- sort(var.scores, decreasing = T)
 
+
 if(ncol(matrix) <= 5){top.vars <- names(var.score.ranked[1:3])}
-if(ncol(matrix) >= 6 && ncol(matrix) <= 10){top.vars <- names(var.score.ranked[1:5])}
+if(ncol(matrix) >= 6 && ncol(matrix) <= 10){top.vars <- 
+  names(var.score.ranked[1:5])}
 if(ncol(matrix) >= 11){top.vars <- names(var.score.ranked[1:10])}
 
 
