@@ -21,6 +21,7 @@ sessionInfo()  # for more info
 
 library(dplyr)
 library(gtools)
+library(ggplot2)
 library(vegan)
 
 
@@ -28,7 +29,8 @@ library(vegan)
 # below, or with the "Install Packages..." option under the 'Tools' menu
 
 # install.packages("dplyr")
-install.packages("gtools")
+# install.packages("gtools")
+# install.packages("ggplot2")
 # install.packages("vegan")
 
 

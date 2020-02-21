@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1787280198",
+    "hash" : "476636409",
     "id" : "D611CEFD",
-    "lastKnownWriteTime" : 1582179190,
-    "last_content_update" : 1582179190599,
+    "lastKnownWriteTime" : 1582240219,
+    "last_content_update" : 1582240219459,
     "path" : "~/SCHOOL/B6 Data Analysis in R/4.Research.project/Roter.ResearchProject/1.forest.main.R",
     "project_path" : "1.forest.main.R",
     "properties" : {
-        "cursorPosition" : "23,0",
-        "scrollLine" : "20"
+        "cursorPosition" : "34,0",
+        "scrollLine" : "21"
     },
     "read_only" : false,
     "read_only_alternatives" : [

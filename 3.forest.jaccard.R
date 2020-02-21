@@ -44,8 +44,12 @@ sort(similarities$JI)
 
 
 
+class(dist(test.pres))
 
 
+
+sample1=rnorm(n=100, mean=100, sd=10)
+sample2=jitter(sample1, factor=10, amount=10)
 
 
 

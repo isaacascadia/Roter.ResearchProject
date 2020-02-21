@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582224365344.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7A206F2B",
+    "lastKnownWriteTime" : 1582240169,
+    "last_content_update" : 1582240169934,
+    "path" : "~/SCHOOL/B6 Data Analysis in R/4.Research.project/Roter.ResearchProject/4.forest.pca.R",
+    "project_path" : "4.forest.pca.R",
+    "properties" : {
+        "cursorPosition" : "1,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled2"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,30 +1,33 @@
-# Data Simulation variables
+# data Simulation variables
 trees <- c("tree1", "tree2", "tree3", "tree4")
-n.trees <- c(20, 20, 20, 20)
+n.trees <- rep(20, 4)
 mean.trees <- c(180, 170, 150, 120)
 sd.trees <- c(12, 12, 12, 12)
 
 
 
-tree.abund <- rep(NA, sum(n.trees))
+alp.abund <- dataframe(trees[1] = rep(NA, 20),
+                       trees[2] = rep(NA, 20),
+                       trees[3] = rep(NA, 20),
+                       trees[4] = rep(NA, 20))
 
 for(i in 1:length(trees)){
   
-  tree.abund <- c(tree.abund, rnorm(n.trees[i], mean.trees[i], sd.trees[i]))
-  }
+  alp.abund[,i] <- c(tree.abund, rnorm(n.trees[i], mean.trees[i], sd.trees[i]))
+
+}
 
 
 
 # simulating data manually
-test.data <- data.frame("tree1" = floor(rnorm(n = 46, mean = 180, sd = 12)),
-                        "tree2" = rnorm(n = 46, mean = 170, sd = 12),
-                        "tree3" = rnorm(n = 46, mean = 150, sd = 12),
-                        "tree4" = rnorm(n = 46, mean = 120, sd = 12),
-                        "tree6" = rnorm(n = 46, mean = 130, sd = 12),
-                        "tree6" = rnorm(n = 46, mean = 140, sd = 12),
+test.data <- data.frame("tree1" = rnorm(n = 46, mean = 150, sd = 12),
+                        "tree2" = rnorm(n = 46, mean = 150, sd = 8),
+                        "tree3" = rnorm(n = 46, mean = 150, sd = 6),
+                        "tree4" = rnorm(n = 46, mean = 150, sd = 100),
+                        "tree5" = rnorm(n = 46, mean = 150, sd = 100),
+                        "tree6" = rnorm(n = 46, mean = 150, sd = 8),
                         stringsAsFactors = F)
 
-hist(x = test.data$tree1, col = "darkgreen")
 
 
 test.pres <- data.frame("tree1" = round(rnorm(n = 46, mean = 0.5, sd = 0.25)),
@@ -36,6 +39,9 @@ test.pres <- data.frame("tree1" = round(rnorm(n = 46, mean = 0.5, sd = 0.25)),
                         stringsAsFactors = F)
 
 
+
+
+hist(x = test.data$tree1, col = "darkgreen")
 
 
 

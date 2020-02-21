@@ -1,0 +1,63 @@
+# data Simulation variables
+trees <- c("tree1", "tree2", "tree3", "tree4")
+n.trees <- rep(20, 4)
+mean.trees <- c(180, 170, 150, 120)
+sd.trees <- c(12, 12, 12, 12)
+
+
+
+test.abund <- data.frame(trees1 = rep(NA, 20), 
+                        trees2 = rep(NA, 20), 
+                        trees3 = rep(NA, 20), 
+                        trees4 = rep(NA, 20))
+
+for(i in 1:nrow(alp.abund)){
+  
+  test.abund[,i] <- c(tree.abund, rnorm(n.trees[i], mean.trees[i], sd.trees[i]))
+
+}
+
+
+
+# simulating data manually
+alp.data <- data.frame("tree1" = rnorm(n = 46, mean = 150, sd = 12),
+                       "tree2" = rnorm(n = 46, mean = 150, sd = 8),
+                       "tree3" = rnorm(n = 46, mean = 150, sd = 6),
+                       "tree4" = rnorm(n = 46, mean = 150, sd = 100),
+                       stringsAsFactors = F)
+
+sub.data <- data.frame("tree1" = rnorm(n = 46, mean = 150, sd = 12),
+                       "tree2" = rnorm(n = 46, mean = 150, sd = 8),
+                       "tree3" = rnorm(n = 46, mean = 150, sd = 6),
+                       "tree4" = rnorm(n = 46, mean = 150, sd = 100),
+                       stringsAsFactors = F)
+
+val.data <- data.frame("tree1" = rnorm(n = 46, mean = 150, sd = 12),
+                       "tree2" = rnorm(n = 46, mean = 150, sd = 8),
+                       "tree3" = rnorm(n = 46, mean = 150, sd = 6),
+                       "tree4" = rnorm(n = 46, mean = 150, sd = 100),
+                       stringsAsFactors = F)
+
+
+
+
+
+
+
+
+
+
+hist(x = test.data$tree1, col = "darkgreen")
+
+
+
+test.pres <- data.frame("tree1" = round(rnorm(n = 46, mean = 0.5, sd = 0.25)),
+                        "tree2" = round(rnorm(n = 46, mean = 0.5, sd = 0.25)),
+                        "tree3" = round(rnorm(n = 46, mean = 0.5, sd = 0.25)),
+                        "tree4" = round(rnorm(n = 46, mean = 0.5, sd = 0.25)),
+                        "tree5" = round(rnorm(n = 46, mean = 0.5, sd = 0.25)),
+                        "tree6" = round(rnorm(n = 46, mean = 0.5, sd = 0.25)),
+                        stringsAsFactors = F)
+
+
+
