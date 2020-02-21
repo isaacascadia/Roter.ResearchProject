@@ -48,9 +48,6 @@ class(dist(test.pres))
 
 
 
-sample1=rnorm(n=100, mean=100, sd=10)
-sample2=jitter(sample1, factor=10, amount=10)
-
 
 
 
@@ -60,7 +57,7 @@ sample2=jitter(sample1, factor=10, amount=10)
 
 # INCOMPLETE
 
-bdist <- rep(NA, nrows(test.data))
+bdist <- rep(NA, nrow(test.data))
 
 for(i in 1:ncol(test.data)){
   
