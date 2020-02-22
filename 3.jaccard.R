@@ -1,5 +1,5 @@
 
-fjaccard <- function(binary.dataframe){
+fjaccard <- function(binary.dataframe, csv.name){
 
 # how many combinations are there
   combs <- combinations(n = nrow(binary.dataframe), r = 2)
@@ -20,8 +20,8 @@ fjaccard <- function(binary.dataframe){
     n1 <- combs[i,1]
     n2 <- combs[i,2]
     
-    trees.i <- which(test.pres[n1,] == 1)
-    trees.j <- which(test.pres[n2,] == 1)
+    trees.i <- which(binary.dataframe[n1,] == 1)
+    trees.j <- which(binary.dataframe[n2,] == 1)
     
 # calculate jaccard index for pair
     j.sim$JI[i] <- length(intersect(trees.i, trees.j)) / 
@@ -30,54 +30,25 @@ fjaccard <- function(binary.dataframe){
     
   }  # end of jaccard index loop
   
+  write.csv(j.sim, paste(path.data.output, csv.name, 
+                                ".jaccard.csv", sep = ""))
   return(j.sim)
   
 }  # end jaccard function
 
 
 
-fjaccard(test.pres)
+fjaccard(presence1, "presence1")
 
-similarities <- fjaccard(test.pres)
+similarities <- fjaccard(presence1, "presence1")
 
 sort(similarities$JI)
 
 
 
-class(dist(test.pres))
 
 
 
-
-
-
-
-# Jaccard distance based on Bray-Curtis dissimilarity for quantities (vegan)
-
-
-# INCOMPLETE
-
-bdist <- rep(NA, nrow(test.data))
-
-for(i in 1:ncol(test.data)){
-  
-  bdist[i] <- abs(test.data[1,i] - test.data[2,i+1]) / 
-    test.data[1,i] + test.data[2,i+1]
-  
-}  # end b-c dissimilarity
-
-# check results
-bdist
-
-# bray curtis distance to jaccard conversion
-abs(test.data[1,2] - test.data[2,2]) / test.data[1,2] + test.data[2,2]
-
-
-
-
-
-# jaccard's using the vegan package
-vegdist(test.data, method = "jaccard", upper = F)
 
 
 

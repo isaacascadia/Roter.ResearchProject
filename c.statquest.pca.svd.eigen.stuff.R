@@ -1,3 +1,5 @@
+# from https://github.com/StatQuest/pca_demo/blob/master/pca_demo.R
+
 ## In this example, the data is in a matrix called
 ## data.matrix
 ## columns are individual samples (i.e. cells)

@@ -64,7 +64,7 @@ var.scores
 var.score.ranked <- sort(var.scores, decreasing = T)
 var.score.ranked
 
-# what are variables with the hieghest loading scores?
+# what are variables with the highest loading scores?
 if(ncol(study1) <= 5){top.vars <- names(var.score.ranked[1:3])}
 if(ncol(study1) >= 6 && ncol(matrix) <= 10){top.vars <- 
   names(var.score.ranked[1:5])}

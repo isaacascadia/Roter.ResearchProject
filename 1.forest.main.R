@@ -2,27 +2,30 @@
 # 
 #===== General ================================================================
 # 
-# This file contains code that pertains to the following aspects of the 
-# sex-weather project:
+# This file contains code that pertains to the following aspects of  
+# Isaac's exploration of Jaccard's index and principal component analysis:
 #
 # 1. Libraries
 # 2. File Management
 # 3. Global Variables
-# 4. Run Custom Codes
+# 4. Run Custom Code 
 # 
-# 
+# cluster analysis to come?
+
+
 R.version.string
 # "R version 3.6.2 (2019-12-12)"
 
 sessionInfo()  # for more info
 
-#==== 1. Libraries==============================================================
+#============================ 1. Libraries =====================================
 # libraries needed for downloading gtrends and weather data
 
 library(dplyr)    # %>% 
 library(gtools)   # combinations()
 library(ggplot2)  # ggplot()
 library(vegan)    # vegdist()
+
 
 
 # if you don't have the library yet, please install it! Either with the script 
@@ -34,7 +37,7 @@ library(vegan)    # vegdist()
 # install.packages("vegan")
 
 
-#======== 2. File Management ===================================================
+#============================ 2. File Management ===============================
 
 # working directory
 wd <- getwd()
@@ -58,15 +61,18 @@ path.data.output <- paste(wd,"/",output.folder.names[2],"/", sep = "")
 path.figures <- paste(wd,"/",output.folder.names[3],"/", sep = "")
 
 
-#===== 3. Global Variables =====================================================
+#============================ 3. Global Variables ==============================
 
-set.seed(seed = 4)
+# none yet
 
 
 #============================ 4. Run Custom Codes ==============================
 
-# # Run some script
-source()
+# # Run script files
+source(paste(getwd(), "/2.data.simulation.R", sep = ""))
+source(paste(getwd(), "/3.jaccard.R", sep = ""))
+source(paste(getwd(), "/4.pca.R", sep = ""))
+
 
 #============================ End of Main ======================================
 
