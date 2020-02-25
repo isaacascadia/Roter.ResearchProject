@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582484317793.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2799F4AE",
+    "lastKnownWriteTime" : 1582615105,
+    "last_content_update" : 1582615105745,
+    "path" : "~/SCHOOL/B6 Data Analysis in R/4.Research.project/Roter.ResearchProject/3.simulation.testing.R",
+    "project_path" : "3.simulation.testing.R",
+    "properties" : {
+        "cursorPosition" : "33,15",
+        "scrollLine" : "26"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

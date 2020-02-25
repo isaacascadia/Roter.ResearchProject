@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582484317057.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "EFD75213",
+    "lastKnownWriteTime" : 1582584386,
+    "last_content_update" : 1582584386356,
+    "path" : "~/SCHOOL/B6 Data Analysis in R/4.Research.project/Roter.ResearchProject/1.forest.main.R",
+    "project_path" : "1.forest.main.R",
+    "properties" : {
+        "cursorPosition" : "74,0",
+        "scrollLine" : "62"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
