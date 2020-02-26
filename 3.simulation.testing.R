@@ -1,7 +1,13 @@
 
+# this file contains each dataset simulated using the fsimulate() function and 
+# the Jaccard-based cluster analysis or PCA performed for that dataset, as well
+# as notes on the results.
 
 
-#================== binary data for jaccard's ==================================
+#================== jaccard index 1 ============================================
+
+# initial binary dataset. all 3 populations have identical mean presences for 
+# all species
 
 binary1 <- fsimulate(name = "binary1", n.vars = 6,
                      alp.n = 7, alp.m = rep(x = 0.5, times = 6), 
@@ -13,22 +19,92 @@ binary1 <- fsimulate(name = "binary1", n.vars = 6,
 fjaccard(binary1, "binary 1")
 
 
+# as expected, no clear results in heatmap or dendrogram
 
 
-#================== binary data for jaccard's ==================================
+#================== jaccard index 2 ============================================
+
+# similar to binary 1, except alp.m is higher, differentiating this population
 
 binary2 <- fsimulate(name = "binary2", n.vars = 6,
-                     alp.n = 7, alp.m = rep(x = 0.8, times = 6), 
-                     alp.sd = rep(0.25, 6),
+                     alp.n = 7, alp.m = rep(0.9, 6), alp.sd = rep(0.25, 6),
                      sub.n = 7, sub.m = rep(0.5, 6), sub.sd = rep(0.25, 6),
-                     val.n = 7, val.m = rep(0.7, 6), val.sd = rep(0.25, 6)) %>% 
+                     val.n = 7, val.m = rep(0.5, 6), val.sd = rep(0.25, 6)) %>% 
   round()
 
 fjaccard(binary2, "binary 2")
 
+# clear clustering in heatmap, all comparisons between plots 1:7 are much more 
+# red, while the remainder are fairly stochastic.
+# dendrogram also clusters all alp plots 
 
 
-#================== first pca data simulation and trial ========================
+
+#================== jaccard index 3 ============================================
+
+# three distinct populations, still 6 variables
+
+binary3 <- fsimulate(name = "binary3", n.vars = 6,
+                     alp.n = 7, alp.m = c(0.9, 0.9, 0.5, 0.5, 0.5, 0.5), 
+                     alp.sd = rep(0.25, 6),
+                     sub.n = 7, sub.m = c(0.5, 0.5, 0.9, 0.9, 0.5, 0.5), 
+                     sub.sd = rep(0.25, 6),
+                     val.n = 7, val.m = c(0.5, 0.5, 0.5, 0.5, 0.9, 0.9), 
+                     val.sd = rep(0.25, 6)) %>% 
+  round()
+
+fjaccard(binary3, "binary 3")
+
+# heatmap: smaller (3 plot) clusters for alp and sub, possible but indistinct
+# clustering for valley
+# dendrogram: sub well clustered, valley clustered but mixed with alpine 
+
+
+
+#================== jaccard index 4 ============================================
+
+# three distinct populations, now 30 variables
+
+binary4 <- fsimulate(name = "binary4", n.vars = 30,
+                     alp.n = 7, alp.m = rep(c(0.9, 0.5, 0.5), each = 10), 
+                     alp.sd = rep(0.25, 30),
+                     sub.n = 7, sub.m = rep(c(0.5, 0.9, 0.5), each = 10), 
+                     sub.sd = rep(0.25, 30),
+                     val.n = 7, val.m = rep(c(0.9, 0.5, 0.9), each = 10), 
+                     val.sd = rep(0.25, 30)) %>% 
+  round()
+
+fjaccard(binary4, "binary 4")
+
+# heatmap: clear similarity clustering for valley, weak but distinct for sub,
+# weak and only slightly distinct for alpine
+# dendrogram: sub branches off at first node, alp and val more interrelated but
+# still distinct in final clustering, except alp7 is in val, reflects heatmap
+
+
+
+#================== jaccard index 5 ============================================
+
+# three distinct populations, 30 variables, very low standard deviation
+
+binary5 <- fsimulate(name = "binary5", n.vars = 30,
+                     alp.n = 7, alp.m = rep(c(0.9, 0.5, 0.5), each = 10), 
+                     alp.sd = rep(0.01, 30),
+                     sub.n = 7, sub.m = rep(c(0.5, 0.9, 0.5), each = 10), 
+                     sub.sd = rep(0.01, 30),
+                     val.n = 7, val.m = rep(c(0.9, 0.5, 0.9), each = 10), 
+                     val.sd = rep(0.01, 30)) %>% 
+  round()
+
+fjaccard(binary5, "binary 5")
+
+# heatmap: distinct similarity clusters for all three groups, val is most 
+# distinct, alp is least
+# dendrogram: sub still branches off at first node, val and alp more clearly
+# distinguished but alp3 is still mixed in with sub
+
+
+#================== PCA data simulation and trial 1 ============================
 
 # simulating one population - consistent proportions of species means 
 # across all areas. Low SDs.
@@ -51,7 +127,7 @@ fpca(trial1, "trial 1")
 # PC scatterplot - widely distributed points, some clustering toward center
 # no differences to see here, folks!
 
-#================== trial 2 (different populations) ============================
+#================== PCA trial 2 ================================================
 
 # three populations, first variable varies hugely between populations, 
 # while the remainder stay consistent
@@ -130,7 +206,7 @@ fpca(trial4, "trial 4")
 
 
 
-#================== trial 5 only 1/6 varying variables =========================
+#================== trial 5 ====================================================
 
 
 # one variable varies hugely, but there are only 2 variables
@@ -156,37 +232,84 @@ fpca(trial5, "trial 5")
 # no differences to see here, folks.
 
 
-#================== trial 6 1/6 varying variables, more variance ===============
+
+#================== trial 6 ====================================================
+
+# 6 variables, 2 vary in each group, rest are consistent
+
+trial6 <- fsimulate(name = "trial6", n.vars = 6,
+                    alp.n = 46, alp.m = rep(c(150, 135, 135), each = 2), 
+                    alp.sd = rep(1, 6), 
+                    sub.n = 46, sub.m = rep(c(135, 150, 135), each = 2), 
+                    sub.sd = rep(1, 6),
+                    val.n = 46, val.m = rep(c(135, 135, 150), each = 2), 
+                    val.sd = rep(1, 6))
+
+fpca(trial6, "trial 6")
+
+# [1] "highest loading scores"
+# species4   species3   species1   species2   species5 
+# 0.5716909  0.5706700 -0.3449294 -0.3402583 -0.2415189
+
+# loading scores - species 3 and 4 were most influential, varying species means
+# for subalpine
+# scatterplot - 3 clear clusters, 2 vary along PC2, one diverges along PC1
+# scree plot - first 2 PCs capture 99% of variation
+
+# lots of difference observable
 
 
-trial6 <- fsimulate(name = "trial6", 
-                    alp.means = c(0, 100, 100, 100, 100, 100),
-                    alp.sd = rep(x = 8, times = 6),
-                    sub.means = c(200, 100, 100, 100, 100, 100),
-                    sub.sd = rep(x = 8, times = 6),
-                    val.means = c(400, 100, 100, 100, 100, 100),
-                    val.sd = rep(x = 8, times = 6),
-                    samps = 90, 
-                    vars = 6)
+#================== trial 7 ====================================================
 
-fpca(trial6, "trial6")
+# 6 variables, 1 varies in each group, rest are consistent
 
-
-#================== trial 4 (now with data simulation function !) ==============
-
-
-trial7 <- fsimulate(name = "trial7", 
-                    alp.means = c(50, 100, 150, 300, 10, 275),
-                    alp.sd = rep(x = 12, times = 6),
-                    sub.means = c(100, 50, 300, 150, 200, 30),
-                    sub.sd = rep(x = 12, times = 6),
-                    val.means = c(200, 10, 50, 200, 100, 180),
-                    val.sd = rep(x = 12, times = 6),
-                    samps = 90, 
-                    vars = 6)
+trial7 <- fsimulate(name = "trial7", n.vars = 6,
+                    alp.n = 46, alp.m = c(150, 135, 135, 135, 135, 135), 
+                    alp.sd = rep(1, 6), 
+                    sub.n = 46, sub.m = c(135, 150, 135, 135, 135, 135), 
+                    sub.sd = rep(1, 6),
+                    val.n = 46, val.m = c(135, 135, 150, 135, 135, 135), 
+                    val.sd = rep(1, 6))
 
 fpca(trial7, "trial 7")
 
+# [1] "highest loading scores"
+# species3   species2   species6   species1   species4 
+# 0.7094337 -0.5166924  0.3889796 -0.1871015  0.1785395
+
+# loading scores - species 3 was most influential, divergent mean for val
+# scatterplot - three distinct groups, each covers PC1 range by about 50%
+# scree plot - first two PCs capture ~50%, PC3:6 each capture ~15%
+
+# still difference is observable
+
+#================== trial 8 ====================================================
+
+# 90 variables, 3 distinct populations, each has 30 distinct species means, 
+# but distinct species means are only 2.5 off from remainder of means
+
+trial8 <- fsimulate(name = "trial8", n.vars = 90,
+                    alp.n = 46, alp.m = rep(c(137.5, 135, 135), each = 30), 
+                    alp.sd = rep(1, 90), 
+                    sub.n = 46, sub.m = rep(c(135, 137.5, 135), each = 30), 
+                    sub.sd = rep(1, 90),
+                    val.n = 46, val.m = rep(c(135, 135, 137.5), each = 30), 
+                    val.sd = rep(1, 90))
+
+fpca(trial8, "trial8")
+
+
+# [1] "highest loading scores"
+# species42 species51 species38 species32 species54 species35 species59
+# 0.1511003 0.1493604 0.1470872 0.1425704 0.1421839 0.1411947 0.1407716
+
+# loading scores - top 10 highest loading scores pretty consistent, but all 
+# between 32 and 59, the species varying in subalpine
+# scatterplot - three distinct groups, two are consistent along PC2, all quite
+# distinct along PC1
+# scree plot - first two PCs capture ~60%, remainder are negligible but add up
+
+# difference is clear
 
 
 
